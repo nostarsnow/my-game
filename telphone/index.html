@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我们都在长大，他们却在老去...</title>
+    <link rel="stylesheet" href="../static/css/common.css" media="all" />
+    <link rel="stylesheet" href="css/main.css" media="all" />
+</head>
+<body>
+<div class="main" id="main">
+    <header id="header">
+        <div class="time"></div>
+        <div class="left">
+            <span class="signal"></span>
+            <span class="signal"></span>
+            <span class="signal"></span>
+            <span class="signal"></span>
+            <span class="signal"></span>
+            <span class="nettype">
+                <i class="fa"></i>
+            </span>
+        </div>
+        <div class="right">
+            <span class="powernum">77%</span>
+            <span class="powericon">
+                <div class="powerProgress"></div>
+            </span>
+        </div>
+    </header>
+    <div class="page page0 current">
+        <div class="loading">郑东加速中...<span id="progress"></span></div>
+    </div>
+    <div class="page page1">
+        <div class="datebox">
+            <div class="time"></div>
+            <div class="date"></div>
+        </div>
+        <div class="message drag">
+            <img src="img/p1_t1.png">
+            <div class="dragBg"></div>
+        </div>
+        <div class="unlock drag">
+            <img src="img/p1_t2.png">
+            <div class="dragBg"></div>
+        </div>
+    </div>
+    <div class="page page2">
+        <div class="wxheader">
+            <div class="title">微信</div>
+            <div class="left"></div>
+            <div class="right">
+                <i class="fa fa-plus"></i>
+            </div>
+        </div>
+        <div class="wxbody">
+            <div class="wx_search">
+                <i class="fa fa-search"></i> 搜索
+                <span class="microphone"><i class="fa fa-microphone"></i></span>
+            </div>
+            <div class="wx_meslist">
+                <ul>
+                    <li class="daddy">
+                        <a href="javascript:;">
+                            <div class="headimg">
+                                <img src="img/h0.jpg"/>
+                                <span class="newmes">1</span>
+                            </div>
+                            <div class="mesbox">
+                                <p class="nickname">爸爸</p>
+                                <p class="message">儿子，在不在？</p>
+                            </div>
+                            <div class="mestime"></div>
+                        </a>
+                        <div class="hand up">
+                            <i class="fa fa-hand-o-up"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="wxfooter">
+            <img src="img/footer.jpg"/>
+        </div>
+    </div>
+    <div class="page page3">
+        <div class="wxheader">
+            <div class="title">爸爸</div>
+            <div class="left">
+                <a class="goback"><i class="fa fa-angle-left"></i> 微信</a>
+            </div>
+            <div class="right">
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="hand up">
+                <i class="fa fa-hand-o-up"></i>
+            </div>
+        </div>
+        <div class="wxbody">
+            <div class="wx_mes">
+                <ul>
+                </ul>
+            </div>
+        </div>
+        <div class="wxfooter">
+            <div class="mes messmall current">
+                <img src="img/p3_t1.jpg"/>
+                <div class="hand down">
+                    <i class="fa fa-hand-o-down"></i>
+                </div>
+            </div>
+            <div class="mes mesbig ">
+                <img src="img/p3_t2.jpg"/>
+                <div class="mesinput">
+                    
+                </div>
+                <div class="mesbtn">
+                    <div class="hand down">
+                        <i class="fa fa-hand-o-down"></i>
+                    </div>
+                    <img src="img/p3_t3.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page page4">
+        <div class="wxheader">
+            <div class="title">聊天详情</div>
+            <div class="left">
+                <a class="goback"><i class="fa fa-angle-left"></i> 返回</a>
+            </div>
+            <div class="right">
+                
+            </div>
+        </div>
+        <div class="wxbody">
+            <div class="wx_adduser clear">
+                <ul>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="headimg">
+                                <img src="img/h0.jpg"/>
+                            </div>
+                            <div class="nickname">
+                                爸爸
+                            </div>
+                        </a>
+                    </li>
+                    <li class="adduser">
+                        <a href="javascript:;" id="adduser">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <div class="hand up">
+                            <i class="fa fa-hand-o-up"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <img src="img/p4_t1.jpg"/>
+        </div>
+    </div>
+    <div class="page page5">
+        <div class="wxheader">
+            <div class="title">选择联系人</div>
+            <div class="left">
+                <a class="goback">取消</a>
+            </div>
+            <div class="right">
+                确定
+            </div>
+            <div class="hand up">
+                <i class="fa fa-hand-o-up"></i>
+            </div>
+        </div>
+        <div class="wxbody">
+            <div class="wx_userselected">
+                <ul>
+                    
+                </ul>
+            </div>
+            <div class="wx_userlist">
+                <div class="title"><i class="fa fa-star"></i>星标好友(请选择全部好友)</div>
+                <ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="page page6">
+        <div class="wxheader">
+            <div class="title">家族群(9)</div>
+            <div class="left">
+                <a class="goback"><i class="fa fa-angle-left"></i> 微信</a>
+            </div>
+            <div class="right">
+                <i class="fa fa-users"></i>
+            </div>
+        </div>
+        <div class="wxbody">
+            <div class="wx_mes">
+                <ul>
+                </ul>
+            </div>
+        </div>
+        <div class="wxfooter">
+            <div class="mes messmall current">
+                <img src="img/p3_t1.jpg"/>
+                <div class="hand down">
+                    <i class="fa fa-hand-o-down"></i>
+                </div>
+            </div>
+            <div class="mes mesbig ">
+                <img src="img/p3_t2.jpg"/>
+                <div class="mesinput">
+                    
+                </div>
+                <div class="mesbtn">
+                    <img src="img/p3_t3.png"/>
+                    <div class="hand down">
+                        <i class="fa fa-hand-o-down"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script type="text/javascript" src="../static/js/cj/p.js"></script>
+<script type="text/javascript">
+    var active = "",
+        openid = "";
+    ns.ajaxUrl = "../../conn/ajax/game/ajax.php";
+    ns.ajaxType = "POST";
+</script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

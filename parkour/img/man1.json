@@ -1,0 +1,52 @@
+{
+    "man1" : {
+        "frames" : {
+            "width" : 69,
+            "height" : 93
+        },
+        "animations" : {
+            "begin" : 0,
+            "run" : {
+                "frames" : [6,7,8,9,10,11],
+                "speed" : 0.2
+            },
+            "jump" : {
+                "frames" : [12,13],
+                "speed" : 0.1
+            },
+            "fall" : {
+                "frames" : [18,19],
+                "speed" : 0.1
+            },
+            "win" : {
+                "frames" : [24],
+                "speed" : 0.2
+            },
+            "lose" : {
+                "frames" : [30],
+                "speed" : 0.2
+            }
+        }
+    },
+    "man2" : {
+        "frames" : {
+            "width" : 69,
+            "height" : 93
+        },
+        "animations" : {
+            "begin" : 0,
+            "run" : {
+                "frames" : [6,7,8,9,10,11],
+                "speed" : 0.15
+            },
+            "win" : {
+                "frames" : [24],
+                "speed" : 0.15
+            },
+            "lose" : {
+                "frames" : [30],
+                "speed" : 0.15
+            }
+        }
+    }
+}

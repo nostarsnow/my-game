@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>火眼金睛赛 犀利辨真伪</title>
+    <link rel=icon href=https://wx2.sinaimg.cn/mw690/4d227521ly1fcoq8d7jpzj200g00g743.jpg>
+    <link rel="stylesheet" href="../static/css/awesome/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" href="../static/css/common.css" media="all" />
+    <link rel="stylesheet" href="css/main.css" media="all" />
+</head>
+<body class="gamebody">
+    <div class="main" id="main">
+        <div class="game">
+            <div id="lavetime">
+            </div>
+            <div class="title">
+                <div class="time">
+                    <p>时间</p>
+                    <p id="time">60</p>
+                </div>
+                <div class="score">
+                    <p>分数</p>
+                    <p id="score">0</p>
+                </div>
+            </div>
+            <div class="show" id="show">
+            </div>
+        </div>
+        <div id="myScore" class="box">
+            <div class="titleShow">
+                我的成绩
+            </div>
+            <div class="boxShow">
+                <div class="myResultShow">
+                    <p>
+                        得分：<span id="scoreShow"></span> 分
+                    </p>
+                    <p>
+                        用时：<span id="timeShow"></span> 秒
+                    </p>
+                </div>
+                <div class="rank">
+                <ul>
+                    <li class="rank_title"><span>排名</span><span>名称</span><span>成绩</span><span>时间</span></li>
+                </ul>
+                </div>
+    
+            </div>
+            <div class="btn_box">
+                <div class="lr">
+                    <a id="rank" class="lr_1">
+                       <img src="img/btn_rank.png"/> 
+                    </a>
+                    <a id="share" class="lr_1">
+                        <img src="img/btn_share.png"/> 
+                    </a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="shareover" class="shareover"></div>
+    <script type="text/javascript" src="../static/js/common.js"></script>
+<script type="text/javascript">
+    var active = "",
+        openid = "",
+        reged= true,
+        myName= "",
+        myBestScore = "" || 0,
+        myBestTime = "" || 0,
+        myTel= "";
+    ns.ajaxUrl = "../static/json/game/ajax.json";
+    ns.ajaxType = "get";
+    ns.addShare("#share");
+</script>
+<script type="text/javascript" src="js/game.js"></script>
+</body>
+</html>

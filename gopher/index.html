@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>全民打地鼠 北郡送好礼</title>
+    <link rel=icon href=https://wx2.sinaimg.cn/mw690/4d227521ly1fcoq8d7jpzj200g00g743.jpg>
+    <link rel="stylesheet" href="../static/css/awesome/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" href="../static/css/common.css" media="all" />
+    <link rel="stylesheet" href="css/main.css" media="all" />
+</head>
+<body>
+<div class="main" id="main">
+    <div class="page page1 current">
+        <img src="img/bg.jpg" class="d_b"/>
+        <img src="img/t1.png?2" class="t1"/>
+        <div class="btnbox">
+            <div class="lr_1">
+                <a id="btn_go">
+                    <img src="img/btn_go.png"/>
+                </a>
+            </div>
+            <div class="lr_1 btn_rule">
+                <a href="#">
+                    <img src="img/btn_rule.png"/>
+                </a>
+            </div>
+            <div class="lr_1 btn_rank">
+                <a href="#" >
+                    <img src="img/btn_rank.png"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="page page2 ">
+        <div id="lavetime"></div>
+        <div class="going">
+            <div class="goingTime"><i class="fa fa-clock-o"></i><span id="goingTime">0</span></div>
+            <div class="goingScore"><i class="fa fa-gavel"></i><span id="goingScore">0</span></div>
+        </div>
+        <div id="canvas"></div>
+        <img src="img/t2.png" class="t2">
+        <div id="stop"></div>
+    </div>
+    <div class="page page3 ">
+        <div class="showTitle">
+            <img src="img/s_bg.png" id="s_bg"/>
+            <img src="img/s1.png" id="showTitle"/>
+        </div>
+        <div class="showBox">
+            <div class="score">
+                <p>恭喜您！用时<span id="time"></span>秒</p>
+                <p>消灭了<span id="score"></span>只地鼠！</p>
+                <p>获得称号<span id="title"></span>！</p>
+            </div>
+        </div>
+        <div class="btnbox">
+            <div class="lr_1">
+                <a class="btn_restart">
+                    <img src="img/btn_restart.png"/>
+                </a>
+            </div>
+            <div class="lr_1" id="btn_share">
+                <a href="#">
+                    <img src="img/btn_share.png"/>
+                </a>
+            </div>
+            <div class="lr_1 btn_rank">
+                <a href="#" >
+                    <img src="img/btn_rank.png"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="page page4 ">
+        <div class="rankTop">
+            <img src="img/rank_top.png"/>
+        </div>
+        <div id="rank" class="rank">
+            <ul>
+                <li class="rank_title">
+                    <span class="num">排名</span>
+                    <span class="name">姓名</span>
+                    <span class="score">时间</span>
+                </li>
+            </ul>
+        </div>
+        <div class="btnbox">
+            <div class="lr">
+                <div class="lr_1">
+                    <p>我的排名：<span id="myRank" class="rank_score"><?php echo @$info["rank"] ? @$info["rank"] : 0 ?></span></p>
+                    <p>最佳成绩：<span id="myScore" class="rank_score"><?php echo @$info["time"] ? @$info["time"] : 0 ?></span></p>
+                </div>
+                <div class="lr_1">
+                    <a class="btn_restart">
+                        <img src="img/btn_go.png"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio src="http://www.ytmp3.cn/down/56498.mp3" autoplay="autoplay" loop="loop" id="bgmp3"></audio>
+</div>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script type="text/javascript" src="../static/js/SnowCry.js"></script>
+<script type="text/javascript">
+    var active = "",
+        openid = "",
+        reged= true,
+        myName= "",
+        myTel= "",
+        myBestScore= "" || 0,
+        myBestTime= "" || 0,
+        enKey = "",
+        enIv = "";
+        ns.ajaxUrl = "../static/json/game/ajax.json";
+    ns.addShare("#btn_share");
+</script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

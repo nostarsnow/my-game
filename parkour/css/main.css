@@ -1,0 +1,621 @@
+html{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin:auto;
+    bottom: 0;
+}
+body{
+    background-color:#000;
+    height: 100%;
+}
+.main{
+    max-width: 1008px;
+    height: 100%;
+    overflow: hidden;
+}
+.bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../img/bg.jpg) no-repeat left top;
+    background-size: 100% 100%;
+    display: none;
+}
+.page{
+    min-width: 320px;
+    max-width: 1008px;
+    max-height: 1008px;
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: auto;
+}
+.page.current{
+    display: block;
+    z-index: 2;
+}
+.page4{
+    position: static;
+    overflow: visible;
+}
+.page2,.page3{
+    background: url(../img/bg1.jpg) no-repeat left top;
+    background-size: 100% 100%;
+}
+.t1{
+    position: absolute;
+    left: 8%;
+    right: 0;
+    margin: auto;
+    width: 50%;
+    top: 5%;
+    z-index: 1;
+    visibility: hidden;
+}
+.btn_go{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 30%;
+    bottom: 5%;
+    z-index: 1;
+    visibility: hidden;
+}
+.btn_rule{
+    position: absolute;
+    right: 1%;
+    margin: auto;
+    width: 7%;
+    bottom: 30%;
+    z-index: 1;
+    visibility: hidden;
+}
+.btn_rank_i{
+    position: absolute;
+    right: 1%;
+    margin: auto;
+    width: 7%;
+    bottom: 5%;
+    z-index: 1;
+    visibility: hidden;
+}
+.anim.t1{
+    -webkit-animation: bounceInLeft .5s forwards;
+    animation: bounceInLeft .5s forwards;
+}
+.anim.btn_go{
+    -webkit-animation: zoomInRight .5s forwards;
+    animation: zoomInRight .5s forwards;
+}
+.anim.btn_rule{
+    -webkit-animation: zoomInRight .5s forwards;
+    animation: zoomInRight .5s forwards;
+}
+.anim.btn_rank_i{
+    -webkit-animation: zoomInRight .5s forwards;
+    animation: zoomInRight .5s forwards;
+}
+.anim_go.t1{
+    -webkit-animation: bounceOutLeft .3s forwards;
+    animation: bounceOutLeft .3s forwards;
+}
+.anim_go.btn_go{
+    -webkit-animation: zoomOutRight .3s forwards;
+    animation: zoomOutRight .3s forwards;
+}
+.anim_go.btn_rule{
+    -webkit-animation: zoomOutRight .3s forwards;
+    animation: zoomOutRight .3s forwards;
+}
+.anim_go.btn_rank_i{
+    -webkit-animation: zoomOutRight .3s forwards;
+    animation: zoomOutRight .3s forwards;
+}
+.timeBg{
+    position: absolute;
+    width: 30%;
+    left: 5%;
+    top: 1%;
+    z-index: 3;
+}
+.coinBg{
+    position: absolute;
+    width: 30%;
+    left: 50%;
+    top: 1%;
+    z-index: 3;
+}
+.timeBg img , .coinBg img{
+    width: 100%;
+}
+.btn_pause{
+    position: absolute;
+    width: 7%;
+    right: 5%;
+    top: 1%;
+    z-index: 3;
+}
+#TIME , #SCORE{
+    position: absolute;
+    width: 70%;
+    right: 2%;
+    height: 95%;
+    bottom: 0;
+    text-align: center;
+    color: #fff;
+    font-family: georgiab;
+    font-size: .5rem;
+}
+.pause{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    background-color: rgba(0,0,0,.5);
+    display: none;
+}
+.pause .fa{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 70px;
+    text-align: center;
+    margin: auto;
+    color: #fff;
+}
+.man{
+    width: 20%;
+    height: 186px;
+    background: url(../img/man1.png) no-repeat 0 0;
+    background-size: 600%;
+    position: absolute;
+    left: 10%;
+    bottom: 14%;
+    margin: auto;
+}
+.man.win{
+    background-position: 0 80%;
+}
+.man.lose{
+    background-position: 0 100%;
+}
+.btnbox{
+    position: absolute;
+    margin: auto;
+}
+#canvas{
+    position: absolute;
+    z-index: 1;
+    display: block;
+    left: 0;
+    top: 0;
+}
+.myScore{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10%;
+    width: 40%;
+    margin: auto;
+    border-radius: 7px;
+    padding: .5rem;
+    text-align: center;
+    background-color: rgba(255,255,255,.5);
+    color: #FFA600;
+    line-height: 1.5rem;
+}
+.myScore span{
+    font-family: georgiab;
+    font-size: .5rem;
+    margin : 0 1rem;
+}
+.page2 .btnbox{
+    position: absolute;
+    bottom: 10%;
+    width: 25%;
+    right: 0;
+    left: 15%;
+}
+#btn_share{
+    display: block;
+    margin-bottom: 1rem;
+}
+.btn_icon{
+    overflow: hidden;
+}
+.btn_icon a{
+    width: 30%;
+    display: block;
+}
+.btn_icon .btn_rank{
+    float: left;
+}
+.btn_icon .btn_restart{
+    float: right;
+}
+.page3 .btnbox{
+    width: 30%;
+    top: 10%;
+    right: 6%;
+    line-height: 2.5rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #FFA600;
+}
+.page3 .btn_restart{
+    position: absolute;
+    width: 30%;
+    right: 6%;
+    bottom: 10%;
+}
+.showBg{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+}
+#btn_restart{
+    margin-top: 10px;
+    display: block;
+}
+.rank{
+    position: absolute;
+    width: 56%;
+    left: 0;
+    margin: auto;
+    top: 0;
+    line-height: 2rem;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: #999 2px solid;
+}
+.rank ul{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.rank li{
+    padding-bottom: 3px;
+    border-bottom: #fff 1px solid;
+    margin-bottom: 3px;
+    line-height: 2rem;
+}
+.rank span{
+    display: inline-block;
+    float: none;
+    text-align: center;
+}
+.rank li .rank_score ,.rank li .rank_num , .myCcore{
+    font-size: .5rem;
+    font-family: georgiab;
+}
+.rank .rank_num{
+    width: 25%;
+}
+.rank .rank_score{
+    width: 40%;
+}
+.rank_title{
+    border-bottom: #fff 1px solid;
+    line-height: 3rem;
+    font-size:1rem;
+}
+.rank_name{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: bottom;
+    width: 35%;
+}
+.shareover{
+    background: rgba(0,0,0,.7);
+}
+.shareover img{
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-height: 100%;
+}
+.ebox{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.ebox img{
+    display: block;
+}
+.ecode{
+    width: 50%;
+    margin: auto;
+}
+.etxt{
+    margin: 1rem auto;
+    max-width: 100%;
+}
+.exchange{
+    display: block;
+    margin: 0 auto;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border: #fff 1px solid;
+    background-color: #de157b;
+    padding: 0 .5rem;
+    border-radius: 7px;
+    color: #fff;
+}
+label{
+    margin: 5px 0 3px;
+}
+.xl_dialog_con{
+    padding: 5px .5rem;
+}
+.ruleBox{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    color: #fff;
+    line-height: 2rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: none;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+.ruleBox h5{
+    font-size: 1rem;
+    margin-top: 5px;
+}
+.ruleBox p{
+    padding-left: 1rem;
+}
+.ruleBox a,.ruleBox a:visited{
+    color: #fff;
+}
+#xl_loading{
+    position: absolute;
+}
+#xl_tip_alert{
+    bottom: 3px;
+}
+/* anim */
+.animated.bounceIn,
+.animated.bounceOut {
+  -webkit-animation-duration: .75s;
+  animation-duration: .75s;
+}
+@-webkit-keyframes bounceInLeft {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    visibility: visible;
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-3000px, 0, 0);
+    transform: translate3d(-3000px, 0, 0);
+    visibility: visible;
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+    transform: translate3d(25px, 0, 0);
+    visibility: visible;
+  }
+
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+    visibility: visible;
+  }
+
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+    visibility: visible;
+  }
+}
+@keyframes bounceInLeft {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    visibility: visible;
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-3000px, 0, 0);
+    transform: translate3d(-3000px, 0, 0);
+    visibility: visible;
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+    transform: translate3d(25px, 0, 0);
+    visibility: visible;
+  }
+
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+    visibility: visible;
+  }
+
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+    visibility: visible;
+  }
+}
+.bounceInLeft {
+  -webkit-animation-name: bounceInLeft;
+  animation-name: bounceInLeft;
+}
+@-webkit-keyframes bounceOutLeft {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+    visibility: visible;
+  }
+}
+
+@keyframes bounceOutLeft {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+    visibility: visible;
+  }
+}
+
+.bounceOutLeft {
+  -webkit-animation-name: bounceOutLeft;
+  animation-name: bounceOutLeft;
+}
+@-webkit-keyframes zoomInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);
+    transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    visibility: visible;
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);
+    transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    visibility: visible;
+  }
+
+  100%{
+    visibility: visible;
+  }
+}
+
+@keyframes zoomInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);
+    transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    visibility: visible;
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);
+    transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    visibility: visible;
+  }
+
+  100%{
+    visibility: visible;
+  }
+}
+
+.zoomInRight {
+  -webkit-animation-name: zoomInRight;
+  animation-name: zoomInRight;
+}
+@-webkit-keyframes zoomOutRight {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);
+    transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(.1) translate3d(2000px, 0, 0);
+    transform: scale(.1) translate3d(2000px, 0, 0);
+    -webkit-transform-origin: right center;
+    transform-origin: right center;
+    visibility: visible;
+  }
+}
+
+@keyframes zoomOutRight {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);
+    transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(.1) translate3d(2000px, 0, 0);
+    transform: scale(.1) translate3d(2000px, 0, 0);
+    -webkit-transform-origin: right center;
+    transform-origin: right center;
+    visibility: visible;
+  }
+}
+
+.zoomOutRight {
+  -webkit-animation-name: zoomOutRight;
+  animation-name: zoomOutRight;
+}

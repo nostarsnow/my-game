@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>平安果来袭，速来摇好礼</title>
+    <link rel=icon href=https://wx2.sinaimg.cn/mw690/4d227521ly1fcoq8d7jpzj200g00g743.jpg>
+    <link rel="stylesheet" href="../static/css/awesome/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" href="../static/css/common.css" media="all" />
+    <link rel="stylesheet" href="./css/main.min.css" media="all" />
+</head>
+<body>
+<div class="main" id="main">
+    <div class="p_r">
+        <img src="img/bg.jpg" class="d_b"/>
+        <div class="titlebox">
+            <img src="img/title.png" class="title">
+        </div>
+        <div class="treebox">
+            <img src="img/tree.png" class="tree">
+            <div class="applebox">
+                <div class="apple apple1">
+                    <img src="img/apple1.png">
+                </div>
+                <div class="apple apple2"><img src="img/apple1.png"></div>
+                <div class="apple apple3"><img src="img/apple1.png"></div>
+                <div class="apple apple4"><img src="img/apple2.png"></div>
+                <div class="apple apple5"><img src="img/apple1.png"></div>
+                <div class="apple apple6"><img src="img/apple2.png"></div>
+                <div class="apple apple7"><img src="img/apple2.png"></div>
+            </div>
+        </div>
+        <div class="giftbox box_cl">
+            <div class="gift">
+                <div class="gift_info">
+                    <p class="t_green" id="gift"></p>
+                </div>
+                <img src="img/txtbg.png"/>
+                <div class="btn_box lr">
+                    <a class="lr_1 btn_goMyGift">
+                        <img src="img/a2.png">
+                    </a>
+                    <a class="lr_1 btn_close">
+                        <img src="img/a7.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mybtn">
+            <span id="share">
+               <img src="img/btn1.png"/> 
+            </span>
+            <span id="mygift">
+               <img src="img/btn2.png"/> 
+            </span>
+            <span id="rule">
+                <a href="http://mp.weixin.qq.com/s?__biz=MjM5MzMzMzg2NA==&mid=205556603&idx=1&sn=46f413af35cf6494cdb34da45de88b14#rd">
+                    <img src="img/btn3.png"/> 
+                </a>
+            </span>
+        </div>
+        <div class="mygift box_cl" id="mygiftbox">
+            <div class="gift_box">
+                <div class="gift_box_top p_r">
+                    <img src="img/b_top.png"/>
+                    <img src="img/a2.png" class="gift_box_top_btn"/>
+                    <a class="close">
+                        <i class="fa fa-times-circle"></i>
+                    </a>
+                </div>
+                <div class="gift_box_con">
+                    <ul>
+                    </ul>
+                    <div class="myinfo w_90 t_c">
+                        <p>姓名：<span id="myName"></span></p>
+                        <p>电话：<span id="myTel"></span></p>
+                    </div>
+                </div>
+                <div class="gift_box_bottom">
+                    <img src="img/b_bottom.png"/> 
+                </div>
+            </div>
+        </div>
+        <div class="exchange box_cl">
+            <div class="gift_box">
+                <div class="gift_box_top p_r">
+                    <img src="img/e_top.png"/>
+                    <img src="img/a6.png" class="gift_box_top_btn"/>
+                    <a class="close">
+                        <i class="fa fa-times-circle"></i>
+                    </a>
+                </div>
+                <div class="gift_box_con">
+                    <p><span class="gift_name"></span></p>
+                    <p><input type="text" id="pwd" placeholder="请输入兑换密码"/></p>
+                    <p><a id="pwd_go"><img src="img/a7.png"/></a></p>
+                </div>
+                <div class="gift_box_bottom">
+                    <img src="img/b_bottom.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<audio src="http://www.ytmp3.cn/down/56498.mp3" autoplay="autoplay" loop="loop" id="bgmp3" style="height:0;width:0;overflow:hidden;position:absolute;"></audio>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script type="text/javascript">
+    var active = "",
+        openid = "";
+    ns.ajaxUrl = "../../conn/ajax/turntable/ajax.php";
+    ns.ajaxType = 'post';
+    var bgm = document.getElementById("bgmp3"),
+        bgmPlayed = false,
+        $body = $("body");
+    $body.on("touchstart",function() {
+        if ( !bgmPlayed ) {
+            if ( bgm.paused !== false ) {
+                bgm.load();
+                bgmPlayed = true;
+                bgm.play();
+            }
+        } else {
+            bgm.play();
+        }
+        $body.off('touchstart');
+    });
+</script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

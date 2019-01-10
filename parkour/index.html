@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>酷跑青春，不玩才怪！</title>
+    <link rel=icon href=https://wx2.sinaimg.cn/mw690/4d227521ly1fcoq8d7jpzj200g00g743.jpg>
+    <link rel="stylesheet" href="../static/css/awesome/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" href="../static/css/common.css" media="all" />
+    <link rel="stylesheet" href="css/main.css" media="all" />
+</head>
+<body>
+<div class="main" id="main">
+    <div class="bg"></div>
+    <canvas id="canvas"></canvas>
+    <div class="ruleBox">
+        <h5>活动时间</h5>
+        <p>每周六周日</p>
+        <h5>活动规则</h5>
+        <p>1、进入“郑州万达中心”微信公众平台，回复“跑酷”即可获取活动链接。</p>
+        <p>2、填写姓名、手机号码参与活动（此信息为兑奖凭证，务必填写准确）。</p>
+        <p>3、开始游戏，根据提示点击屏幕，在前行过程中，尽可能的吃掉金币。最终完成整段旅程，以最终积分进行排名。</p>
+        <p>4、每人每天不限制参与次数，最终结果以最好成绩为准。</p>
+        <p>5、在活动过程中，如有任何作弊行为，我方有权取消参赛资格。</p>
+        <p>6、活动结束后，依据活动排名依次派发奖品。</p>
+        <p>7、本活动最终解释权归郑州万达中心所有。</p>
+        <h5>兑奖须知</h5>
+        <p>兑奖时间：每周一（09:00—18:00）</p>
+        <p>1、本奖品只能线下兑奖，奖品不予邮寄，不可代领。</p>
+        <p>2、凭借姓名、手机号码等有效信息至郑州万达中心营销中心兑奖。</p>
+        <p>3、每人仅限领取一份奖品，不可重复兑奖。</p>
+        <p>4、兑奖地点：农科路与花园路交会处西200米路北，郑州万达中心营销中心</p>
+        <p><a href="tel:03716938999">5、兑奖电话：0371-6938999</a></p>
+</p>
+    </div>
+    <div class="page page1">
+        <img src="img/t1.png" class="t1"/>
+        <img src="img/btn_go.png" class="btn_go"/>
+        <img src="img/btn_rank_i.png" class="btn_rank_i"/>
+        <img src="img/btn_rule.png" class="btn_rule"/>
+    </div>
+    <div class="page page4">
+        <div class="timeBg">
+            <img src="img/timeBg.png"/>
+            <div id="TIME">0</div>
+        </div>
+        <div class="coinBg">
+            <img src="img/coinBg.png"/>
+            <div id="SCORE">0</div>
+        </div>
+        <img src="img/btn_pause.png" class="btn_pause"/>
+        <div class="pause">
+            <i class="fa fa-play-circle-o"></i>
+        </div>
+    </div>
+    <div class="page page2 ">
+        <div class="man"></div>
+        <div class="myScore">
+            <p>
+                我的成绩：<span id="myScore"></span>
+            </p>
+            <p>
+                最佳成绩：<span class="myBestScore"></span>
+            </p>
+        </div>
+        <div class="btnbox">
+            <a id="btn_share">
+                <img src="img/btn_share.png"/>
+            </a>
+            <div class="btn_icon">
+                <a class="btn_rank">
+                    <img src="img/btn_rank.png"/>
+                </a>
+                <a class="btn_restart">
+                    <img src="img/btn_again.png"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="page page3 ">
+        <div class="showBg">
+            <div id="rank" class="rank">
+                <div class="rank_title">
+                    <span class="rank_num">排名</span><span class="rank_name">姓名</span><span class="rank_score">分数</span>
+                </div>
+                <ul>
+                    
+                </ul>
+            </div>
+            <div class="btnbox">
+                <p>我的成绩：<span class="myCcore myBestScore">0</span></p>
+                <p>我的排名：<span id="myRank" class="myCcore">0</span></p>
+            </div>
+            <a class="btn_restart">
+                <img src="img/btn_go.png"/>
+            </a>
+        </div>
+    </div>
+    <audio src="http://www.ytmp3.cn/down/56498.mp3" autoplay="autoplay" loop="loop" id="bgmp3"></audio>
+</div>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script type="text/javascript" src="../static/js/cj/e.js"></script>
+<script type="text/javascript" src="../static/js/cj/t.js"></script>
+<script type="text/javascript" src="../static/js/cj/p.js"></script>
+<script type="text/javascript" src="../static/js/cj/s.js"></script>
+<script type="text/javascript" src="../static/js/SnowCry.js"></script>
+<script type="text/javascript" src="../static/js/cj/coll.js"></script>
+<script type="text/javascript">
+    var active = "weimob_guessidiom",
+        openid = "77",
+        reged= true,
+        myName= "",
+        myTel= "",
+        myBestScore = 0,
+        myBestRank = 0,
+        enKey = "key",
+        enIv = "iv";
+    //check.ajaxType = "post";
+    ns.addShare("#btn_share");
+    var obsPercent = 0.023,
+        coinPercent = 0.03,
+        bgSpeed = 3000;
+</script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

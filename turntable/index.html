@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>抽奖</title>
+    <link rel=icon href=https://wx2.sinaimg.cn/mw690/4d227521ly1fcoq8d7jpzj200g00g743.jpg>
+    <link rel="stylesheet" href="../static/css/awesome/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" href="../static/css/common.css" media="all" />
+    <style type="text/css">
+        body{
+            font-family: microsoft yahei;
+            background-color: #029cab;
+        }
+        .main{
+            max-width: 640px;
+        }
+        .turntable_box{
+            position: relative;
+            margin: 20px 0;
+        }
+        .turntable{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 91.25%;
+            min-width: 300px;
+            min-height: 300px;
+            margin: auto;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 1;
+            -webkit-transform: rotate(0deg);
+            transform:rotate(0deg);
+            -webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+        }
+        .turntable_full{
+            /*background: url(http://wx.aiweimob.com/vote/27_turntable/img/full.png) no-repeat left top;*/
+            background-size: 100% 100%;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        .turn_bg{
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            -webkit-border-radius: 50%;
+            -webkit-transform: rotate(0deg);
+            transform:rotate(0deg);
+            -webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+
+        }
+        .turntable_bg{
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            float: left;
+            text-align: center;
+            overflow: hidden;
+            -webkit-transform-origin: right bottom;
+            -moz-transform-origin: right bottom;
+            transform-origin: right bottom;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .turn_btn{
+            position: absolute;
+            display: inline-block;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 8%;
+            margin: auto;
+            width : 40%;
+            height : 40%;
+            z-index: 2;
+            -webkit-transform-origin: center 60%;
+            -moz-transform-origin: center 60%;
+            transform-origin: center 60%;
+        }
+        .turntable_bg a{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            text-align: center;
+            -webkit-transform-origin: right bottom;
+            -moz-transform-origin: right bottom;
+            transform-origin: right bottom;
+        }
+        .turntable_bg h3{
+            position: absolute;
+            display: block;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            -webkit-transform-origin: right bottom;
+            -moz-transform-origin: right bottom;
+            transform-origin: right bottom;
+            font-size: 1rem;
+        }
+        .turntable_bg img{
+            width: 25%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="main" id="main">
+    <div class="turntable_box">
+        <div class="turntable">
+            <div class="turn_bg"></div>
+        </div>
+        <div class="turntable_full">
+            <div class="turn_btn">
+                <img src="./img/turn_btn.png"/>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script type="text/javascript">
+$(function(){
+    var turntable = {
+        defaults : { //默认
+            animationType : 'btn',
+            animationTime : 3,
+            goRound : 10,
+            randomBgColor : false
+        },
+        full : 360, //角度
+        half : 180, //半角
+        rAngle : 90, //直角
+        going : false, //抽奖状态
+        revise : 0, //背景修正角度
+        init : function(options){ //初始化
+            this.sector = []; //角度数组。包括每个扇形的旋转角度和中心角度
+            this.options = $.extend(this.defaults,options);
+            this.bg = $(options.bg);
+            this.btn = $(options.btn);
+            this.prize = options.prize;
+            this.count = this.prize.length;
+            if ( options.animationType == 'bg' ){
+                this.goType = 'bg';
+                this.goObj = this.bg;
+            }else if ( options.animationType == 'btn' ){
+                this.goType = 'btn';
+                this.goObj = this.btn;
+            }
+            this.bg_build();
+            this.btn.on(click,function() {
+                if ( turntable.going ){
+                    return false;
+                }
+                if ( turntable.totalAngle ){
+                    console.log(turntable.totalAngle%turntable.full);
+                    var reset = 'rotate(' + ( turntable.totalAngle%turntable.full ) + 'deg)';
+                    turntable.goObj.removeAttr('style').css({
+                        'transform' : reset,
+                        '-webkit-transform' : reset,
+                        '-moz-transform' : reset
+                    });
+                }
+                var rand = Math.floor(Math.random() * turntable.sector.length);
+                setTimeout(function(){
+                    turntable.animate(rand);
+                },100);
+            }); 
+        },
+        bg_build : function(){ // 背景自动生成。
+            var $bg = this.bg,
+                count = this.count,
+                angle = this.full/count,
+                angleHalf = angle/2,
+                revisebg;
+            $bg.empty();
+            if ( count%2 == 1 ){
+                if ( this.goType == 'bg' ){
+                    this.revise = (90-angleHalf);
+                }else if ( this.goType == 'btn' ){
+                    this.revise = (90-angleHalf);
+                }
+                revisebg = 'rotate(' + this.revise + 'deg)';
+                $bg.attr("style","transform:" + revisebg + ";-webkit-transform:" + revisebg);
+            }
+            for (var i = 0; i < count ; i++) {
+                if ( this.goType == 'bg' ){
+                    this.sector.push({
+                        angle : angle * i,
+                        center :  90 - angleHalf - (angle*i)
+                    });
+                }else if ( this.goType == 'btn' ){
+                    var center = angleHalf + (angle*i) - 90 + this.revise;
+                    /*if ( center < 0 ){
+                        center = center + this.full;
+                    }*/
+                    this.sector.push({
+                        angle : angle * i,
+                        center : center
+                    });
+                }
+                var transform = 'rotate(' + (angle*i) + 'deg) skew(' + (this.rAngle - angle) + 'deg)',
+                    transformInner = 'skew(-' + (this.rAngle - angle) + 'deg)',
+                    transformInfo = 'rotate(' + angleHalf + 'deg) translateY(50%)',
+                    transformTxt = 'rotate(-90deg);padding-bottom:30%',
+                    background = this.options.randomBgColor ? 'background : ' + this.randomColor() + ';' : '';
+                var $turn_bg = '<div class="turntable_bg" style="'+ background + 'transform:' + transform + ';-webkit-transform:' + transform + '"><a style="transform:' + transformInner + ';-webkit-transform:' + transformInner + '"><h3 style="transform:' + transformInfo + ';-webkit-transform:' + transformInfo + '"><div style="transform:' + transformTxt + ';-webkit-transform:' + transformTxt + '"><p>' + this.prize[i].name + '</p><img src="' + this.prize[i].img + '"/></div></h3></a></div>';
+                $bg.append($turn_bg);
+            };
+        },
+        randomColor : function(){
+            return '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6);
+        },
+        animate : function( rand ){ //抽奖动画
+            this.going = true;
+            this.totalAngle = this.full * this.options.goRound + this.sector[rand].center;
+            var rotate = 'rotate(' + this.totalAngle + 'deg)',
+                transition = 'all ease ' + this.options.animationTime + 's',
+                goType;
+            if ( this.animationType == 'bg' ){
+                goType = this.bg;
+            }else if ( this.animationType == 'btn' ){
+                goType = this.bg;
+            }
+            this.goObj.attr('style','transform: ' + rotate + '; -webkit-transform: ' + rotate + '; transition: ' + transition + '; -webkit-transition: ' + transition + ';');
+            setTimeout(function(){
+                turntable.going = false;
+                turntable.prizeShow(rand);
+            },this.options.animationTime*1000);
+        },
+        prizeShow : function (i) { //奖品展示
+            ns.log({
+                title : '获奖信息',
+                con : '<div class="t_lh2r t_c"><p>获得奖品 : ' + turntable.prize[i].name + '</p><p>随机数字 : ' + i + '</p><p>旋转角度：' + turntable.full * turntable.options.goRound + ' + ' + turntable.sector[i].center + '</p></div>'
+            });
+        }
+    };
+    $(".turntable").height($(".turntable").width());
+    $(".turntable_full").height($(".turntable_full").width());
+    var src = "./img/gift.jpg";
+    turntable.init({
+        bg : '.turn_bg', 
+        btn : '.turn_btn',
+        prize : [
+            {
+                name : '奖品1',
+                img : src
+            },
+            {
+                name : '奖品2',
+                img : src
+            },
+            {
+                name : '奖品3',
+                img : src
+            },
+            {
+                name : '奖品4',
+                img : src
+            },
+            {
+                name : '奖品5',
+                img : src
+            },
+            {
+                name : '奖品6',
+                img : src
+            },
+            {
+                name : '奖品7',
+                img : src
+            },
+            {
+                name : '奖品8',
+                img : src
+            },
+            {
+                name : '奖品9',
+                img : src
+            },
+            {
+                name : '奖品10',
+                img : src
+            },
+        ].slice(0,ns.getRequest('list') || 10),
+        goRound : 10,
+        animationTime : 5,
+        animationType : 'bg',
+        randomBgColor : true
+    });
+    /*
+     * 初始化参数：
+     *    options : {
+     *        bg : //背景div
+     *        btn : //按钮
+     *        prize : //奖品列表。格式为数组。每个值都是一个对象。name。名字。img。图片
+     *        goRound ：//进行圈数 默认10
+     *        animationTime : //动画时间。数字。单位秒。默认3
+     *        animationType : //旋转方式。默认是btn。按钮。bg为背景旋转
+     *        randomBgColor : //是否随机填充背景色。默认是false。
+     *    }
+
+     */
+    //$(".turn_btn").trigger(click);
+});
+</script>
+</body>
+</html>

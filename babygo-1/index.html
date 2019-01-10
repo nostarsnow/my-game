@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>全民乐跑 礼享名都</title>
+    <link rel=icon href=https://wx2.sinaimg.cn/mw690/4d227521ly1fcoq8d7jpzj200g00g743.jpg>
+    <link rel="stylesheet" href="../static/css/awesome/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" href="../static/css/common.css" media="all" />
+    <link rel="stylesheet" href="css/main.css" media="all" />
+</head>
+<body>
+<div class="progress">
+    <span>5.00%</span>
+</div>
+<div class="main" id="main">
+    <div class="page page1 current">
+        <img src="img/bg.jpg" class="d_b"/>
+        <img src="img/t1.png" class="t1"/>
+        <div class="btnbox btn_action">
+            <div class="lr lr3_3_3">
+                <div class="lr_1">
+                    <a id="btn_rule" href="http://mp.weixin.qq.com/s?__biz=MzI2NTAxMzI5OQ==&mid=210162785&idx=1&sn=c42bf93e9f1e7c7382c5b4b3761fbd41#rd">
+                        <img src="img/btn_rule.png"/>
+                    </a>
+                </div>
+                <div class="lr_1 btn_rank">
+                    <a>
+                        <img src="img/btn_rank.png"/>
+                    </a>
+                </div>
+                <div class="lr_1">
+                    <a id="btn_go">
+                        <img src="img/btn_go.png"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page page2 ">
+        <canvas id="canvas"></canvas>
+        <div class="phone">
+            <img src="img/btn_action.png" id="btn_action"/>
+            <img src="img/phone.png"/>
+            <p>左右摇晃手机使火炬手移动！不要漏掉东西哟！<br>点击【go】开始</p>
+        </div>
+    </div>
+    <div class="page page3 ">
+        <img src="img/end.png" class="d_b"/>
+        <img src="img/babyEnd.png" class="babyEnd"/>
+        <div class="distance showBox">
+            爬行距离 ：<span id="distance">0</span> 米
+        </div>
+        <div class="time showBox">
+            最佳距离 ：<span id="time">0</span> 米
+        </div>
+        <a id="btn_share">
+            <img src="img/btn_share.png"/>
+        </a>
+        <div class="btnbox">
+            <div class="lr lr3_3">
+                <div class="lr_1">
+                    <a id="btn_again" href="index.html">
+                        <img src="img/btn_again.png"/>
+                    </a>
+                </div>
+                <div class="lr_1">
+                    <a class="btn_rank" >
+                        <img src="img/btn_rank.png"/>
+                    </a>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="page page4 ">
+        <div id="rank" class="rank">
+            <ul>
+                
+            </ul>
+        </div>
+        <div class="btnbox">
+            <div class="lr">
+                <div class="lr_1">
+                    <p>我的排名：<span id="myRank" class="rank_score"><?php echo @$info["rank"] ? @$info["rank"] : 0 ?></span></p>
+                    <p>最佳成绩：<span id="myScore" class="rank_score"><?php echo @$info["score"] ? @$info["score"] : 0 ?></span></p>
+                </div>
+                <div class="lr_1">
+                    <a id="btn_restart">
+                        <img src="img/btn_go.png"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio src="http://www.ytmp3.cn/down/56498.mp3" autoplay="autoplay" loop="loop" id="bgmp3" style="height:0;width:0;overflow:hidden;position:absolute;"></audio>
+</div>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script type="text/javascript" src="../static/js/cj/e.js"></script>
+<script type="text/javascript" src="../static/js/cj/t.js"></script>
+<script type="text/javascript" src="../static/js/cj/p.js"></script>
+<script type="text/javascript" src="../static/js/SnowCry.js"></script>
+<script type="text/javascript" src="../static/js/cj/coll.js"></script>
+<script type="text/javascript">
+    var active = "",
+        openid = "",
+        reged= 1,
+        myName= "",
+        myTel= "",
+        myBestScore= "" || 0,
+        myBestTime= "" || 0,
+        enKey = "",
+        enIv = "";
+        ns.ajaxUrl = "../static/json/game/ajax.json";
+    ns.addShare("#btn_share");
+</script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

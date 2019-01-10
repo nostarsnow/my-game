@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>助力七夕寻师之旅，赢万元豪礼</title>
+    <link rel=icon href=https://wx2.sinaimg.cn/mw690/4d227521ly1fcoq8d7jpzj200g00g743.jpg>
+    <link rel="stylesheet" href="../static/css/awesome/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" href="../static/css/common.css" media="all" />
+    <link rel="stylesheet" href="css/main.css?7" media="all" />
+</head>
+<body>
+<div class="main" id="main">
+    <div class="page page1 current">
+        <div class="inner p_r">
+            <img src="img/bg.jpg?1" class="d_b"/>
+            <div class="progress">
+                <span>5.00%</span>
+            </div>
+            <div class="btn_box btn_action">
+                <div class="lr lr3_3_3">
+                    <a id="btn_rule" class="lr_1" href="http://mp.weixin.qq.com/s?__biz=MzA3MzMxNzgwMg==&mid=210382940&idx=1&sn=6038f66363dd1301edd6cb7cf30bb667#rd">
+                        <img src="img/btn_rule.png"/>
+                    </a>
+                    <a class="lr_1 btn_rank">
+                        <img src="img/btn_rank.png"/>
+                    </a>
+                    <a id="btn_action" class="lr_1">
+                        <img src="img/btn_action.png"/>
+                    </a>
+                </div>
+            </div>
+            <div class="t_c bottomInfo">
+                <a href="http://main.magazine.weimob.com/27107/html/10386.html">
+                    @河南微盟 技术支持
+                </a>
+            </div>
+        </div>
+        <a href="http://mp.weixin.qq.com/s?__biz=MzA3MzMxNzgwMg==&mid=210313160&idx=1&sn=9919ecf493eaf72314a8b44ae9c627c3#rd"><img src="img/adb.jpg" class="d_b"/></a>
+    </div>
+    <div class="page page2 ">
+        <div id="time">
+            0.00
+        </div>
+        <canvas id="canvas"></canvas>
+    </div>
+    <div class="page page3 ">
+        <div class="showBox">
+            <div class="score tbox">
+                <div class="title">
+                    用时
+                </div>
+                <div id="score">
+                    0.00
+                </div>
+            </div>
+            <div class="info tbox">
+                <div class="title">
+                    评语
+                </div>
+                <div id="info">
+                    恭喜你，找到师傅了！
+                </div>
+            </div>
+        </div>
+        <div class="btn_box">
+            <div class="lr lr3_3_3">
+                <a class="lr_1 btn_restart" href="index.html">
+                    <img src="img/btn_restart.png"/>
+                </a>
+                <a class="lr_1 btn_gift">
+                    <img src="img/btn_gift.png"/>
+                </a>
+                <a id="btn_share" class="lr_1">
+                    <img src="img/btn_share.png"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="page page4 ">
+        <div class="showBox showBox tbox rankBox">
+            <div class="title">我的奖品</div>
+            <div class="gift">
+                <table border="1" class="t_c table q_table">
+                    <thead>
+                        <tr>
+                            <th>
+                                奖品
+                            </th>
+                            <th>
+                                领取
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="btn_box">
+            <div class="lr lr3_3">
+                <a class="lr_1 btn_restart" href="index.html">
+                    <img src="img/btn_restart.png"/>
+                </a>
+                <a class="lr_1 btn_rank">
+                    <img src="img/btn_rank.png"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="page page5 ">
+        <div class="showBox tbox rankBox">
+            <div class="title">游戏排行</div>
+            <div class="rank">
+                <table border="1" class="t_c table q_table">
+                    <thead>
+                        <tr>
+                            <th>
+                                名次
+                            </th>
+                            <th>
+                                姓名
+                            </th>
+                            <th>
+                                时间
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="btn_box btn_action">
+            <div class="lr lr3_3">
+                <a class="lr_1 btn_restart" href="index.html">
+                    <img src="img/btn_restart.png"/>
+                </a>
+                <a class="lr_1 btn_gift">
+                    <img src="img/btn_gift.png"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script type="text/javascript" src="../static/js/cj/e.js"></script>
+<script type="text/javascript" src="../static/js/cj/t.js"></script>
+<script type="text/javascript" src="../static/js/cj/p.js"></script>
+<script type="text/javascript" src="../static/js/cj/s.js"></script>
+<script type="text/javascript" src="../static/js/SnowCry.js"></script>
+<script type="text/javascript">
+    var active = "",
+        openid = "",
+        reged = true,
+        enKey = "",
+        enIv = "ohMyDearILoveYou",
+        myName = "",
+        myTel = "",
+        myScore = "" || 0,
+        bopenid = "",
+        randomRedBag = 0.0007;
+</script>
+<script type="text/javascript" src="js/index.js?11"></script>
+</body>
+</html>

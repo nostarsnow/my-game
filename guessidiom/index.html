@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>珠江澄品 寻找成语英雄</title>
+    <link rel=icon href=https://wx2.sinaimg.cn/mw690/4d227521ly1fcoq8d7jpzj200g00g743.jpg>
+    <link rel="stylesheet" href="../static/css/awesome/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" href="../static/css/common.css" media="all" />
+    <link rel="stylesheet" href="css/main.css" media="all" />
+</head>
+<body>
+<div class="main" id="main">
+    <div class="page page1 current">
+        <img src="img/t1.png" class="t1"/>
+        <img src="img/t2.png" class="t2"/>
+        <div class="btn_box">
+                <a href="javascript:;" id="btn_start">
+                    <img src="img/btn_start.png"/>
+                </a>
+                <a href="http://mp.weixin.qq.com/s?__biz=MzA4MDEyMjE5NQ==&mid=400091532&idx=1&sn=4b7e5c97b8b12c27f340ecc7c750b0cc#rd" id="btn_rule">
+                    <img src="img/btn_rule.png"/>
+                </a>
+                <a href="javascript:;" class="btn_rank">
+                    <img src="img/btn_rank.png"/>
+                </a>
+        </div>
+        <div class="adb">
+            <a href="http://55553364.m.weimob.com/Webborker/index?borker_config_id=2473&pid=55553364&wechatid=oU--Wt-mi2i1sprUHISfZDVN5X7M&wtk=6031bcecea9b5d86febb1b&wxref=mp.weixin.qq.com">
+                <img src="img/adb.jpg"/>
+            </a>
+            <div class="adb_close">
+                <i class="fa fa-times-circle"></i>
+            </div>
+        </div>
+        <div class="t_c bottomInfo">
+            <a href="http://main.magazine.weimob.com/27107/html/10386.html">
+                @河南微盟 技术支持
+            </a>
+        </div>
+    </div>
+    <div class="page page2">
+        <div class="ansWarp">
+            <div class="top">
+                <div class="ansNum">
+                    <span id="ansCur">0</span> / <span id="ansTotal">10</span>
+                </div>
+                <div class="ansTime">
+                    <span id="time">00 '' 00</span>
+                </div>
+            </div>
+            <div class="ansBox">
+                <img src="img/ans1.png" id="ansImg"/>
+            </div>
+            <div class="ansRight">
+                <span class="empty"></span>
+                <span class="empty"></span>
+                <span class="empty"></span>
+                <span class="empty"></span>
+            </div>
+            <div class="ansSelect">
+            </div>
+            <div class="btn_box">
+                <div class="lr lr3_3">
+                    <a href="javascript:;" class="lr_1 btn_tip" id="btn_tip">
+                        <img src="img/btn_tip.png"/>
+                    </a>
+                    <a href="javascript:;" class="lr_1 btn_tipTimes">
+                        剩余次数：<span id="tipTime" class="t_geo">10</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page page3 ">
+        <img src="img/t1.png" class="t1"/>
+        <img src="img/t2.png" class="t2"/>
+        <div class="myScore">
+            <div class="myScoreBox">
+                用时：<span id="myScore" class="t_geo"></span>
+            </div>
+            <div class="myRankBox">
+                最佳排名：<span id="myRank" class="t_geo"></span>
+            </div>
+        </div>
+        <div class="btn_box">
+            <div class="lr lr3_3_3">
+                <a href="javascript:;" class="lr_1" id="btn_restart">
+                    <img src="img/btn_restart.png"/>
+                </a>
+                <a href="javascript:;" class="lr_1" id="btn_share">
+                    <img src="img/btn_share.png"/>
+                </a>
+                <a href="javascript:;" class="lr_1 btn_rank">
+                    <img src="img/btn_rank.png"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="page page4">
+        <div class="close">
+            <i class="fa fa-times-circle"></i>
+        </div>
+        <div class="btnbox">
+            <p>最佳成绩：<span id="myBestScore" class="t_geo"></span></p>
+            <p>我的排名：<span id="myBestRank" class="t_geo"></span></p>
+        </div>
+        <div id="rank" class="rank">
+            <div class="rank_title">
+                <span class="rank_num">排名</span><span class="rank_name">姓名</span><span class="rank_score">用时(s)</span>
+            </div>
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script type="text/javascript">
+    var active = "weimob_guessidiom",
+        openid = "77",
+        reged= true,
+        myName= "",
+        myTel= "",
+        myBestScore = 0,
+        myBestRank = 0,
+        enKey = "key",
+        enIv = "iv";
+    ns.addShare("#btn_share");
+</script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
