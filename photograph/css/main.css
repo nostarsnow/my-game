@@ -4,6 +4,9 @@ body{
 #main{
 	overflow: hidden;
 }
+.lr_1{
+	flex:1;
+}
 .page{
 	display: none;
 }

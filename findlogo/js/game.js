@@ -206,18 +206,19 @@ function gameOver(type){
 	}else{
 		var timeUsed = (allTimes-times-1).toFixed(2);
 	};
-	window.share.title=myName + "" + timeUsed + "秒认出" + score/5 + "个品牌logo，得分" + score + "。你能认出多少个？";
+	//window.share.title=myName + "" + timeUsed + "秒认出" + score/5 + "个品牌logo，得分" + score + "。你能认出多少个？";
 	/*if ( score > myBestScore ){
 		upload(timeUsed);
 	}else if ( score >= myBestScore && myBestTime > 0 && timeUsed < myBestTime ){
 		upload(timeUsed);
   }*/
-	$scoreShow.html(score);
-	$timeShow.html(timeUsed);
+
 	$myResultShow.show();
 	setTimeout(function(){
 		$game.hide();
 		$myScore.show();
+		ns.numberTo($scoreShow,score,2)
+		ns.numberTo($timeShow,timeUsed,2)
 	},300);
 };
 var currPage = 1,
@@ -292,3 +293,17 @@ function upload(time){
         }
     });
 }
+var bgm = document.getElementById("bgmp3"),
+    bgmPlayed = false;
+$(document).on("touchstart",function() {
+    if ( !bgmPlayed ) {
+        if ( bgm.paused !== false ) {
+            bgm.load();
+            bgmPlayed = true;
+            bgm.play();
+        }
+    } else {
+        bgm.play();
+    }
+    $(document).unbind('touchstart');
+});

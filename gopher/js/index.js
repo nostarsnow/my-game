@@ -512,7 +512,7 @@ $rankTop.on(click,function () {
 });
 var bgm = document.getElementById("bgmp3"),
     bgmPlayed = false;
-/*$(document).on("touchstart",function() {
+$(document).on("touchstart",function() {
     if ( !bgmPlayed ) {
         if ( bgm.paused !== false ) {
             bgm.load();
@@ -523,5 +523,5 @@ var bgm = document.getElementById("bgmp3"),
         bgm.play();
     }
     $(document).unbind('touchstart');
-});*/
+});
 }());

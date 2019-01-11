@@ -10,7 +10,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>抽奖</title>
     <link rel=icon href=https://wx2.sinaimg.cn/mw690/4d227521ly1fcoq8d7jpzj200g00g743.jpg>
-    <link rel="stylesheet" href="../static/css/awesome/css/font-awesome.min.css" media="all" />
     <link rel="stylesheet" href="../static/css/common.css" media="all" />
     <style type="text/css">
         body{
@@ -294,7 +293,7 @@ $(function(){
                 name : '奖品10',
                 img : src
             },
-        ].slice(0,ns.getRequest('list') || 10),
+        ].slice(0,ns.getRequest('list') || ~~(Math.random()*7)+4),
         goRound : 10,
         animationTime : 5,
         animationType : 'bg',

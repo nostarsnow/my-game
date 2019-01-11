@@ -272,4 +272,18 @@ var loader = [],
         $redbag.hide(300);
     });
     init();
+    var bgm = document.getElementById("bgmp3"),
+	    bgmPlayed = false;
+	$(document).on(click,function() {
+	    if ( !bgmPlayed ) {
+	        if ( bgm.paused !== false ) {
+	            bgm.load();
+	            bgmPlayed = true;
+	            bgm.play();
+	        }
+	    } else {
+	        bgm.play();
+	    }
+	    $(document).unbind('touchstart');
+	});
 });

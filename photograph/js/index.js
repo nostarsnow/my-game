@@ -90,10 +90,6 @@ var loader = [
 			src : "btn_share.png?1"
 		},
 		{
-			id : "bgm",
-			src : "summer.mp3"
-		},
-		{
 			id : "btn",
 			src : "btn.mp3"
 		}
@@ -222,7 +218,9 @@ function init(){
 		.call(getScore);
 }
 function getScore(){
+	cj.Tween.removeTweens(hS);
 	cj.Sound.play("btn",{loop:0});
+	
 	var h1 = hS.clone(true);
 	h1.x = hS.x-photo.x;
 	h1.y = hS.y-photo.y;
@@ -232,7 +230,6 @@ function getScore(){
 	if ( scoreHad ){
 		return false;
 	}
-	cj.Tween.removeTweens(hS);
 	scoreHad = true;
 	//window.h = h;
 	//console.log("人物原点：" + h.y + "\n" + "图片原点:" + (photo_y+photo_h*0.5) + "\n" + "圆框高度：" + photo_y + "," + (photo_y+photo_h) );
@@ -325,7 +322,7 @@ $rule.on(click,function(){
 	laveTimeGo = setInterval(laveTimeAction,1000);
 	laveTimeAction();
 });
-$btn_go.on(click,getScore);
+$btn_go.on('tap',getScore);
 $btn_restart.on(click,restart);
 ns.addShare($btn_share);
 });

@@ -44,7 +44,15 @@ a,img,button,input,textarea{
 }
 
 /* CSS common */
-
+html{
+  font-size: 100%;
+}
+body{
+  font-size: .8rem;
+}
+.lr{
+  display: flex;
+}
 /* form标签 */
 input,select{
     padding: .5rem;

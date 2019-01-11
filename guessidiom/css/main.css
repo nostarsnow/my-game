@@ -1,13 +1,11 @@
 html{
 	height: 100%;
 	overflow: hidden;
-	font-size: 100%;
 }
 body{
 	background-color: #dec9a0;
 	height: 100%;
 	overflow: hidden;
-	font-size: .8rem;
 }
 #main{
 	height: 100%;

@@ -543,4 +543,18 @@ $(".gift .q_table tbody").on(click,'.exchange',function(){
     });
 });
 ns.addShare($btn_share);
+var bgm = document.getElementById("bgmp3"),
+    bgmPlayed = false;
+	$(document).on("touchstart",function() {
+		if ( !bgmPlayed ) {
+			if ( bgm.paused !== false ) {
+				bgm.load();
+				bgmPlayed = true;
+				bgm.play();
+			}
+		} else {
+			bgm.play();
+		}
+		$(document).unbind('touchstart');
+	});
 //});
